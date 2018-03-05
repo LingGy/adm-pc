@@ -1,0 +1,77 @@
+<tr>
+    <th colspan='6'>
+        <button type="button" class="btn btn-primary btn-sm" id='backSales'>返回</button>
+    </th>
+</tr>
+<tr class='tebie'>
+    <td>订单创建时间:</td>
+    <td>{{ct}}</td>
+    <td>设备ID:</td>
+    <td>{{eid}}</td>
+    <td>订单号:</td>
+    <td>{{oid}}</td>
+</tr>
+<tr class='tebie'>
+    <td>订单总价格:</td>
+    <td>{{price}}</td>
+    <td>状态:</td>
+    {{if stat == 0}}
+    <td style='color:#EB7153;'>新创建</td>
+    {{else if stat == 1}}
+    <td style='color:#EB7153;'>支付完成</td>
+    {{else if stat == 2}}
+    <td style='color:#EB7153;'>客户端确认支付</td>
+    {{else if stat == 3}}
+    <td>打印完成</td>
+	{{else if stat == 100}}
+	<td style='color:#EB7153;'>出票未完成</td>
+	{{else}}
+	<tb style='color:#EB7153;'>*</tb>
+    {{/if}}
+    <td>结果:</td>
+    {{if res == 0}}
+    <td>完成</td>
+    {{else if res == 1}}
+    <td>未完成</td>
+    {{/if}}
+</tr>
+
+{{if orders != false}}
+<tr class="tebie">
+    <td>彩票类型A:</td>
+    <td>{{orders[0].type}}</td>
+
+    <td>张数:</td>
+    {{if orders[0].count !=''}}
+    <td>{{orders[0].count}}</td>
+    {{else}}
+    <td>0</td>
+    {{/if}}
+
+    <td>单张价格:</td>
+    <td>{{orders[0].price}}</td>
+</tr>
+
+
+<tr class="tebie">
+    <td>彩票类型B:</td>
+    <td>{{orders[1].type}}</td>
+
+    <td>张数:</td>
+    {{if orders[1].count !=''}}
+    <td>{{orders[1].count}}</td>
+    {{else}}
+    <td>0</td>
+    {{/if}}
+
+    <td>单张价格:</td>
+    <td>{{orders[1].price}}</td>
+</tr>
+
+{{else}}
+<tr>
+    <td colspan='6'>
+        无
+    </td>
+</tr>
+{{/if}}

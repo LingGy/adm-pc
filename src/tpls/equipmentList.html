@@ -1,0 +1,52 @@
+<div class="panel panel-default equipment-list">
+    <div class="panel-body" id="appoint">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>设备型号</th>
+                <th>设备编号</th>
+                <th>网点地址</th>
+                <th>设备状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{each equipments eqinfo}}
+            {{if eqinfo.stat == 0}}
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{eqinfo.model}}</td>
+                <td class="i-code">{{eqinfo.code}}</td>
+                <td>{{eqinfo.addr}}</td>
+                {{if eqinfo.stat == 0}}
+                <td>正常</td>
+                {{else}}
+                <td>故障</td>
+                {{/if}}
+                <td>
+                    <button type="button" class="btn btn-primary btn-xs btn-click">详细信息</button>
+                </td>
+            </tr>
+            {{else if eqinfo.stat == 1}}
+            <tr style=color:red;>
+	            <td>{{$index + 1}}</td>
+	            <td>{{eqinfo.model}}</td>
+	            <td class="i-code">{{eqinfo.code}}</td>
+	            <td>{{eqinfo.addr}}</td>
+	            {{if eqinfo.stat == 0}}
+	            <td>正常</td>
+	            {{else}}
+	            <td>故障</td>
+	            {{/if}}
+	            <td>
+		            <button type="button" class="btn btn-primary btn-xs btn-click">详细信息</button>
+	            </td>
+            </tr>
+            {{/if}}
+            {{/each}}
+            </tbody>
+        </table>
+        <!--<div id="pageInfo" class="m-pagination"></div>-->
+    </div>
+</div>

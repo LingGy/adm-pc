@@ -1,0 +1,17 @@
+{{if errors}}
+{{each errors}}
+<tr>
+	<td>{{errors[$index].eid}}</td>
+	<td>{{errors[$index].tranid}}</td>
+	<td>{{errors[$index].t}}</td>
+	<td>{{errors[$index].buy}}</td>
+	<td>{{errors[$index].print}}</td>
+	<td>{{errors[$index].port}}</td>
+	<td>{{errors[$index].errcode}}</td>
+</tr>
+{{/each}}
+{{else}}
+<tr>
+<tr>无故障信息</tr>
+</tr>
+{{/if}}

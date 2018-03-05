@@ -1,0 +1,58 @@
+<div>
+    <button type="button" class="btn btn-primary btn-sm" id='back'>返回</button>
+</div><br>
+<table class="table table-bordered table-hover table-striped" id='detInfo'>
+    <tr>
+	    <td><span class="dj">设备型号:</span><span class='sptd'>{{equipment.model}}</span></td>
+    </tr>
+	<tr>
+		<td><span class="dj">机器码:</span><span class='sptd'>{{equipment.code}}</span></td>
+	</tr>
+	<tr>
+		<td>
+			<span class="dj">设备拥有人:</span>
+			<input type="text" class="deOwner" value='{{equipment.owner || ""}}'>
+			<button type='button' class="changeOwner" style='margin-left: 15px' data-code='{{equipment.code}}'>{{!equipment.owner ? '设置':'更改'}}</button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="dj">设备运营人:</span>
+			<input type="text" class="deOperatot" value='{{equipment.operator || ""}}'>
+			<button type='button' class="changeOperatot" style='margin-left: 15px' data-code='{{equipment.code}}'>{{!equipment.operator ? '设置':'更改'}}</button>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="dj">设备MAC地址:</span><span class="sptd">{{equipment.mac}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">工作状态:</span>
+			{{if equipment.stat == '正常'}}
+			<span class="sptd">{{equipment.stat}}</span>
+			{{else if equipment.stat == '故障'}}
+			<span class="sptdt">{{equipment.stat}}</span>
+			{{/if}}
+		</td>
+	</tr>
+	<tr>
+		<td><span class="dj">出票口:</span><span class="sptd">{{equipment.ports[0].port}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">彩票库存:</span><span class="sptd">{{equipment.ports[0].count}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">彩票类型:</span><span class="sptd">{{equipment.ports[0].type}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">出票口:</span><span class="sptd">{{equipment.ports[1].port}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">彩票库存:</span><span class="sptd">{{equipment.ports[1].count}}</span></td>
+	</tr>
+	<tr>
+		<td><span class="dj">彩票类型:</span><span class="sptd">{{equipment.ports[1].type}}</span></td>
+	</tr>
+	<tr>
+		<td data-type='{{equipment.test}}' data-nb='{{equipment.code}}'><span class="dj">运行模式:</span><span class="sptd edType">{{equipment.test}}</span><button type='button' class='changeType'>更改</button></td>
+	</tr>
+</table>

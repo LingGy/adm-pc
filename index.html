@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天天悦彩管理系统</title>
+    <link rel="shortcut icon" href="./favicon.ico"/>
+    <link rel="bookmark" href="./favicon.ico" type="image/x-icon" 　/>
+    <link rel="stylesheet" href="src/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="src/css/login.css">
+</head>
+<body>
+<!--背景-->
+<div class="swiper-container bg">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="src/imgs/9f2f070828381f30a44f7b8ca3014c086e06f045.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="src/imgs/8134022_8134022_1309049303500.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="src/imgs/sz-3.png" alt=""></div>
+    </div>
+</div>
+<!--隔断层-->
+<div class="lie"></div>
+<div class="login-container">
+	<div class="logo_pic">
+		<img src="./src/imgs/583410751538278227.png" alt="">
+	</div>
+	<h2 class="wc_ttyc">天天益彩后台管理系统</h2>
+	<input type="text" id='userName' placeholder='请输入用户名'>
+	<input type="password" id='password' placeholder='请输入密码'>
+	<p class="tip"></p>
+	<input type="button" value='登 录' id='login'>
+</div>
+</body>
+<script src="src/js/lib/jquery-2.1.4.js"></script>
+<script src="src/js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="src/js/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="src/js/common.js"></script>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+        paginationClickable: true,
+        loop:true,
+        autoplay:3000,
+        effect : 'fade',
+        speed:3000,
+        fade: {
+            crossFade: false,
+        }
+    });
+    //提交表单验证
+    $("#login").on("click", function () {
+        //获取表达数据
+        var user = $('#userName').val();
+        var password = $('#password').val();
+        var t = Date.parse(new Date()) / 1000;
+        $.ajax({
+            type: 'post',
+            url: api + 'login',
+	        data: {
+                user: user,
+                password: password,
+                type: 0
+            },
+            success: function (res) {
+                var res = JSON.parse(res)
+	            if (res.code === 1) {
+                    $('.tip').html(res.msg);
+                    return;
+                }else if(res.code === 0){
+		            $('.tip').html('');
+	                $.cookie('uid', user);
+	                const accesstoken = res.accesstoken
+	                window.sessionStorage.setItem('usertype',res.type);
+	                window.sessionStorage.setItem('accesstoken',accesstoken);
+	                window.location.href = './gm-index.html';
+                }
+            },
+        })
+        return false;
+    })
+</script>
+</html>
