@@ -157,4 +157,22 @@ span.dj{
 .changeType{
   margin-left: 15px;
 }
-
+.input-group{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  select{
+    height:34px;
+    border: 1px solid #ccc;
+    border-radius:4px;
+    margin-left: 3px;
+  }
+}
+#intDate,#intDate2{
+  width: 100px;
+  border-radius:4px;
+}
+#queryData{
+  margin-left: 8px;
+  border-radius:4px;
+}

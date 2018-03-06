@@ -27,3 +27,11 @@
 #### 更新内容
 1. 在sales和salecount接口中region参数;
 2. 销售查询增加了地区编码输入框;
+### 2018/3/5
+#### 更新文件
+1. 更改文件 src\assets\pickerDateRange\dateRange.js
+2. 更改文件 src/css/index.css
+3. 更改文件 src/tpls/salesSituation.html
+4. 更改文件 src/js/situation/information.js
+#### 更新内容
+1. 时间日期查询增加了小时和分钟选择

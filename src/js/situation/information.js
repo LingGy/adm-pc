@@ -1,7 +1,7 @@
 /**
  * 销售情况模块
  */
-define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", "text!tpls/orderDetails.html", "text!tpls/sales.html", "arttemplate", "dateRange", "common"], function ($, salesSituationTpl, appoitDateTpl, orderDetailsTpl, saleslistsTpl, art) {
+define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", "text!tpls/orderDetails.html", "text!tpls/sales.html", "arttemplate","dateRange", "common"], function ($, salesSituationTpl, appoitDateTpl, orderDetailsTpl, saleslistsTpl, art) {
     return function () {
         var uid = $.cookie('uid');
         var date = new Date();
@@ -10,6 +10,8 @@ define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", 
 	    var accesstoken = window.sessionStorage.getItem('accesstoken');
 	    var usertype = window.sessionStorage.getItem('usertype');
 		var region = '';
+	    var checkTimeStar,checkTimeEnd;
+
 
 	    //1.渲染基本模板
 	    $(".menu-content-container").empty().append(salesSituationTpl)
@@ -27,18 +29,26 @@ define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", 
 
 	    //4.注册日期选择插件
 	    var dateRange = new pickerDateRange('intDate', {
-		    isTodayValid: true,
 		    theme: 'ta',
 		    success: function (obj) {
-			    //自定义的回调函数 callback();
+			    checkTimeStar = (Date.parse(new Date($('#startDate').val())) / 1000-8*60*60);
 		    }
 	    });
+	    var dateRange2 = new pickerDateRange('intDate2', {
+		    theme: 'ta',
+		    success: function (obj) {
+			    checkTimeEnd = Date.parse(new Date($('#startDate').val())) / 1000-8*60*60;
+		    }
+	    });
+
 
 	    //5.注册点击查询事件
 	    $('#queryData').on('click', function () {
 		    let eid = $('#eid option:selected').val();
-		    let start = Date.parse(new Date($('#startDate').val())) / 1000-8*60*60;
-		    let end = Date.parse(new Date($('#endDate').val())) / 1000 + 16*60*60;
+		    let time1 = ($('#d1_hour option:selected').val()*60*60)+($('#d1_mincte option:selected').val()*60);
+		    let time2 = ($('#d2_hour option:selected').val()*60*60)+($('#d2_mincte option:selected').val()*60);
+		    let start = checkTimeStar + time1;
+		    let end = checkTimeEnd + time2;
 		    let region = $('.region').val();
 		    let allsalecount = getSalecount(uid,eid,start,end,accesstoken,api,usertype,region);
 		    let salelists = getSalelists(uid,eid,start,end,accesstoken,api,usertype,region);
