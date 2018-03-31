@@ -35,3 +35,23 @@
 4. 更改文件 src/js/situation/information.js
 #### 更新内容
 1. 时间日期查询增加了小时和分钟选择
+### 2018/03/26 12:03
+#### 更新文件
+1. 新增文件 ./user-index.html
+2. 更改文件 ./src/js/equipment/list.js
+3. 更改文件 ./src/css/index.css
+#### 更新内容
+1. 增加普通用户登录类型;
+2. 修复了获取不到设备信息时无法正确渲染页面错误;
+### 2018/03/31 17:58
+#### 更新文件
+1. 修改文件 src\css\index.css
+2. 增加文件 src\js\userManagement\userManagement.js
+3. 修改文件 src\tpls\userManagement.html
+4. 增加文件 src\tpls\userManagementList.html
+5. 增加文件 agent-index.html
+6. 修改文件 user-index.html
+7. 修改文件 index.html
+#### 更新内容
+1. 更改增加用户登录类型,管理员,代理商,终端用户
+2. 增加了用户管理模块,实现增,删,改用户功能

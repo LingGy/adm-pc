@@ -1,1 +1,52 @@
-<div class="userManagement">用户管理模块开发中</div>
+<div class="userManagement">
+	<div class="panel panel-default userman">
+		<div class="panel-body">
+			<table class="table table-bordered table-hover table-striped" style="width: 800px;">
+				<thead>
+				<tr>
+					<th colspan="8">
+						<button type="button" id="adduser" class="btn btn-default btn-info">点击添加用户</button>
+					</th>
+				</tr>
+				<tr>
+					<th>用户账号</th>
+					<th>用户姓名</th>
+					<th>用户类型</th>
+					<th>手机号码</th>
+					<th>操作</th>
+					<!--<th>操作</th>-->
+				</tr>
+				</thead>
+				<tbody id="userList">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="addman_box">
+		<div class="addman">
+			<div class="cel">X</div>
+			<p>用户账号</p>
+			<input type="text" class='add_user'onkeyup="this.value=this.value.replace(/[/W]/g,'');">
+			<p>用户姓名</p>
+			<input type="text" class='add_username'>
+			<p>用户密码</p>
+			<input type="password" class='add_password'>
+			<p>用户手机号</p>
+			<input type="text" class='add_phone'>
+			<div class="addmantype">
+				<select name="addmantype" id="addManType">
+					{{if type !== 1}}
+					<option value="1">代理商</option>
+					{{/if}}
+					<option value="2">终端用户</option>
+				</select>
+			</div>
+			<div class="subbtn_box">
+				<button type="button" class="btn btn-info" id='add_submit'>确认添加</button>
+			</div>
+		</div>
+
+	</div>
+
+</div>

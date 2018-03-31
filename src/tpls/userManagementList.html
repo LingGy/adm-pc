@@ -1,0 +1,25 @@
+{{if users}}
+{{each users}}
+<tr data-deluid='{{users[$index].uid}}'>
+	<td>{{users[$index].uid}}</td>
+	<td>{{users[$index].name}}</td>
+	{{if users[$index].utype == 0}}
+	<td>管理员</td>
+	{{else if users[$index].utype == 1}}
+	<td>代理商</td>
+	{{else}}
+	<td>终端用户</td>
+	{{/if}}
+	<td>{{users[$index].phone}}</td>
+	<td><button type='button' class='btn btn-primary btn-xs btn-pt-info delet'>删除用户</button></td>
+	<!--<td><button type='button' class='btn btn-primary btn-xs btn-pt-info info'>查看设备</button></td>-->
+</tr>
+{{/each}}
+{{else}}
+<tr>
+	<td colspan='5'>未有终端用户</td>
+</tr>
+{{/if}}
+
+
+

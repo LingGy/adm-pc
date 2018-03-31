@@ -24,9 +24,14 @@
 		<img src="./src/imgs/583410751538278227.png" alt="">
 	</div>
 	<h2 class="wc_ttyc">天天益彩后台管理系统</h2>
-	<input type="text" id='userName' placeholder='请输入用户名'>
-	<input type="password" id='password' placeholder='请输入密码'>
+	<input type="text" id='userName' placeholder='请输入用户名' value='ttyc'>
+	<input type="password" id='password' placeholder='请输入密码' value='888888'>
 	<p class="tip"></p>
+	<select name='userType' id='userType' style="width:80px;margin-left: 10px;">
+		<option value="0">管理员</option>
+		<option value="1">代理商</option>
+		<option value="2">普通用户</option>
+	</select>
 	<input type="button" value='登 录' id='login'>
 </div>
 </body>
@@ -51,13 +56,14 @@
         var user = $('#userName').val();
         var password = $('#password').val();
         var t = Date.parse(new Date()) / 1000;
-        $.ajax({
+        var userType = $('#userType option:selected').val();
+	    $.ajax({
             type: 'post',
             url: api + 'login',
 	        data: {
                 user: user,
                 password: password,
-                type: 0
+                type: userType
             },
             success: function (res) {
                 var res = JSON.parse(res)
@@ -66,11 +72,16 @@
                     return;
                 }else if(res.code === 0){
 		            $('.tip').html('');
-	                $.cookie('uid', user);
-	                const accesstoken = res.accesstoken
+	                $.cookie('uid',user);
 	                window.sessionStorage.setItem('usertype',res.type);
-	                window.sessionStorage.setItem('accesstoken',accesstoken);
-	                window.location.href = './gm-index.html';
+	                window.sessionStorage.setItem('accesstoken',res.accesstoken);
+	                if(res.type === 0){
+		                window.location.href = './gm-index.html';
+	                }else if(res.type === 1){
+		                window.location.href = './agent-index.html';
+	                }else if(res.type === 2){
+		                window.location.href = './user-index.html';
+	                }
                 }
             },
         })

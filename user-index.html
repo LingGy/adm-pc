@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天天悦彩管理系统</title>
+    <link rel="shortcut icon" href="./favicon.ico"/>
+    <link rel="bookmark" href="./favicon.ico" type="image/x-icon" 　/>
+    <script src="src/js/lib/jquery-2.1.4.js"></script>
+    <script src="src/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="src/js/login/login.js"></script>
+    <link rel="stylesheet" href="src/assets/pickerDateRange/dateRange.css">
+    <link rel="stylesheet" href="src/assets/JqueryPagination/jquery.pagination.css">
+    <link rel="stylesheet" href="src/assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/index.css">
+</head>
+<body>
+<div class="aside">
+    <!--个人资料-->
+    <div class="profile-container">
+        <img src="src/imgs/583410751538278227.png" alt="">
+    </div>
+    <!--菜单栏-->
+    <div class="list-group">
+        <button type="button" class="list-group-item btn-equipment">设备信息</button>
+        <!--<button type="button" class="list-group-item btn-salesData">销售数据</button>-->
+        <button type="button" class="list-group-item btn-salesSituation">销售情况</button>
+        <button type="button" class="list-group-item btn-troubleInfo">故障信息</button>
+    </div>
+</div>
+<!--右侧内容区-->
+<div class="content-container">
+    <!--顶部菜单栏-->
+    <div class="top panel panel-default">
+        <div class="panel-body">
+            <div class="nav-top">
+                <div class="nav-t-l">
+                    <img src="src/imgs/ttycwelcome.png" alt="">
+	                <p id="errinfo">有新的故障信息,请点击故障信息查看详情。</p>
+                </div>
+                <div class="nav-t-r">
+                    <div class='pull-left wecome'>欢迎:&nbsp;&nbsp;&nbsp;&nbsp;<span id='usercome'></span></div>
+                    <button type="button" class="btn btn-info link-logout">退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--要切换内容的区域-->
+    <div class="menu-content-container">
+
+    </div>
+</div>
+</body>
+<script src="src/js/lib/require.js" data-main="gm-main"></script>
+</html>
