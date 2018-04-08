@@ -37,14 +37,11 @@ define(["jquery","text!tpls/userManagement.html", "text!tpls/userManagementList.
 			    success:function(data){
 				    let res = JSON.parse(data);
 				    if(res.code === 0){
-				    	alert('添加成功');
-					    $('.addman_box').css('display','none');
-					    $('.add_user').val("") ;
-					    $('.add_username').val("");
-					    $('.add_password').val("");
-					    $('#addManType option:selected').val("");
-					    $('.add_phone').val("");
-					    $(".aside .list-group button.btn-user-mt").trigger("click");
+				    	$('.addman_box .bgc').css('display','none');
+				    	$('.add01').css('display','block');
+					    setTimeout(function () {
+						    $(".aside .list-group button.btn-user-mt").trigger("click");
+					    },1000);
 				    }else {
 				    	alert(res.msg);
 				    }
@@ -52,6 +49,7 @@ define(["jquery","text!tpls/userManagement.html", "text!tpls/userManagementList.
 			})
 		})
 
+		//获取用户列表
 		$.ajax({
 		    type:'post',
 		    url:api + 'users',
@@ -61,13 +59,20 @@ define(["jquery","text!tpls/userManagement.html", "text!tpls/userManagementList.
 			    accesstoken
 		    },
 		    success:function(data){
-		    	let res = JSON.parse(data)
-			    if(res.code === 0){
-				    var userListTpl = art.render(userManagementListTpl,res)
+		    	let resdata = JSON.parse(data)
+			    if(resdata.code === 0){
+				    var userListTpl = art.render(userManagementListTpl,resdata)
 				    $("#userList").empty().append(userListTpl);
+				    var deleteuid;
+				    //点击删除用户按钮
 			    	$("button.delet").on('click', function () {
-			    		var deleteuid = $(this).parent().parent().attr('data-deluid');
-						$.ajax({
+					    $(".yes_box").css('display','block');
+			    		 deleteuid = $(this).parent().parent().attr('data-deluid');
+				    })
+				    //确认提交删除
+				    $(".yes").on('click', function () {
+					    //删除某个用户
+					    $.ajax({
 						    type:'post',
 						    url:api + 'deleteuser',
 						    data:{
@@ -77,10 +82,65 @@ define(["jquery","text!tpls/userManagement.html", "text!tpls/userManagementList.
 							    deleteuid
 						    },
 						    success:function(data){
-						    	let res = JSON.parse(data)
+							    let res = JSON.parse(data)
+							    if(res.code == 0){
+								    $('.tip01').css('display','none');
+								    $('.tip02').css('display','block');
+								    setTimeout(function () {
+									    $(".aside .list-group button.btn-user-mt").trigger("click");
+								    },1000);
+							    }
+						    }
+					    })
+				    })
+				    //取消
+				    $(".clos").on('click', function () {
+					    $(".yes_box").css('display','none');
+				    })
+				    //点击修改用户button
+				    $('.revise').on('click', function () {
+					    var re_uid = $(this).parent().parent().attr('data-deluid');
+					    var re_name = $(this).parent().parent().attr('data-delname');
+					    var re_pass = $(this).parent().parent().attr('data-delpass');
+					    var re_phone = $(this).parent().parent().attr('data-phone');
+					    $('.revise_user1').val(re_uid);
+					    $('.revise_username1').val(re_name);
+					    $('.revise_password1').val(re_pass);
+					    $('.revise_phone1').val(re_phone);
+					    $('.addman_box1').css('display','block');
+				    });
+			    	//点击确认修改
+					$('#btn_revise').on('click', function () {
+						$.ajax({
+						    type:'post',
+						    url:api+'modifyuser',
+						    data:{
+								uid:uid,
+								usertype,
+								targetuid:$('.revise_user1').val(),
+								name:$('.revise_username1').val(),
+								pass:$('.revise_password1').val(),
+								phone:$('.revise_phone1').val(),
+							    accesstoken
+						    },
+						    success:function(data){
+						    	let res = JSON.parse(data);
 							    console.log(res);
+							    if(res.code == 0){
+							    	$('.bgc1').css('display','none');
+								    $('.add02').css('display','block');
+								    setTimeout(function () {
+									    $(".aside .list-group button.btn-user-mt").trigger("click");
+								    },1000);
+						    	}else {
+						    		alert(res.msg);
+							    }
 						    }
 						})
+					})
+			    	//取消按钮
+				    $('.cel1').on('click', function () {
+					    $('.addman_box1').css('display','none');
 				    })
 			    }
 		    }

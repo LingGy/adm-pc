@@ -63,8 +63,9 @@
         isSingleDay : true,
         defaultText : ' 至 ',
         singleCompare : true,
-        stopToday : true,
-        isTodayValid : false,
+	    startToday:false,
+	    stopToday:true,
+	    isTodayValid:true,
 		weekendDis : false, //灰掉周末不可选。
 		disCertainDay : [], //不可用的周日期设置数组，如：[1,3]是要周一， 周三 两天不可选，每个周的周一，周三都不可选择。
         disCertainDate : [],//不可用的日期设置数组，如:[1,3]是要1号，3号 两天不可选，特别的，[true,1,3]则反之，只有1，3可选，其余不可选。

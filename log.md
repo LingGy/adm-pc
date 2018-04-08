@@ -55,3 +55,15 @@
 #### 更新内容
 1. 更改增加用户登录类型,管理员,代理商,终端用户
 2. 增加了用户管理模块,实现增,删,改用户功能
+### 2018/04/03 17:07
+#### 更新文件
+1. 修改文件 src\css\index.css
+2. 修改文件 src\js\userManagement\userManagement.js
+3. 修改文件 src\tpls\userManagement.html
+4. 修改文件 src\tpls\userManagementList.html
+#### 更新内容
+1. 增加删除,添加,修改用户时二次确认功能,提升用户体验
+2. 增加修改用户信息功能
+3. 优化了用户管理页面显示样式
+4. 修复页面缩放部分文字掉落问题
+5. 列表信息添加了密码文本

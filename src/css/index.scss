@@ -36,14 +36,18 @@
       height: 34px;
       line-height: 34px;
       .nav-t-l {
+        width: 750px;
         display: flex;
         justify-content: flex-start;
         img {
+          display: block;
+          width: 360px;
           margin: 0;
           height: 30px;
         }
         #errinfo{
           display: none;
+          width: 350px;
           margin-left: 25px;
           font-size: 16px;
           color: red;
@@ -55,10 +59,12 @@
         }
       }
       .nav-t-r {
+        width: 400px;
         display: flex;
         justify-content: flex-start;
         .wecome{
-          margin-right:120px;
+          width: 340px;
+          margin-right:20px;
           font-size:18px;
           #usercome{
             color: red;
@@ -181,45 +187,91 @@ span.dj{
   border-radius:4px;
 }
 .userManagement{
-  .addman_box{
+  position: relative;
+  .addman_box,.addman_box1,.yes_box{
     display: none;
-    width: 100%;
-    height: 100%;
-    background-color:rgba(0,0,0,0.3);
     position: absolute;
     top: 0;
     left: 0;
-    .addman{
+    width: 800px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    .bgc,.bgc1,.add01,.add02{
       width: 300px;
-      padding: 0px 20px 20px 20px;
-      border: 1px solid #ccc;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      margin-left: 200px;
-      margin-top: 50px;
-      background-color: #ccc;
-      .cel{
-        width: 20px;
-        height: 20px;
+      height: 200px;
+      position: absolute;
+      top: 100px;
+      left: 250px;
+      border: 1px solid #666666;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      background-color: #fff;
+      z-index: 99;
+    }
+  }
+  .addman_box,.addman_box1{
+    .bgc,.bgc1{
+      height: 410px;
+      .cel,.cel1{
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          background-color: #ccc;
+          margin-bottom: 10px;
+          cursor: pointer;
+          :hover{
+            cursor:pointer;
+          }
+        }
+      .tac_box,.tac_box1{
+          width: 174px;
+          margin: 0 auto;
+          .addmantype{
+            margin-top: 10px;
+          }
+          .subbtn_box{
+            width: 100%;
+            margin-top: 40px;
+            button{
+              float: right;
+            }
+          }
+        }
+    }
+    .add01,.add02{
+      display: none;
+      font-size: 32px;
+      line-height: 200px;
+      text-align: center;
+    }
+  }
+  .yes_box{
+   .bgc{
+    .tip01{
+      width: 100%;
+      height: 100%;
+      p{
+        width: 300px;
         text-align: center;
-        line-height: 20px;
-        background-color: #fff;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        :hover{
-          cursor:pointer;
-        }
+        margin-top: 30px;
+        font-size: 24px;
       }
-      .subbtn_box{
-        width: 100%;
-        button{
-          margin-left: 100px;
-        }
+      .bt{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 50px;
+        margin-top: 50px;
       }
     }
+     .tip02{
+       display: none;
+       text-align: center;
+       font-size: 32px;
+       line-height: 200px;
+     }
+   }
   }
 }

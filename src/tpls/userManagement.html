@@ -13,8 +13,9 @@
 					<th>用户姓名</th>
 					<th>用户类型</th>
 					<th>手机号码</th>
-					<th>操作</th>
-					<!--<th>操作</th>-->
+					<th>密码</th>
+					<th>删除</th>
+					<th>修改</th>
 				</tr>
 				</thead>
 				<tbody id="userList">
@@ -24,29 +25,68 @@
 		</div>
 	</div>
 	<div class="addman_box">
-		<div class="addman">
+		<div class="bgc">
 			<div class="cel">X</div>
-			<p>用户账号</p>
-			<input type="text" class='add_user'onkeyup="this.value=this.value.replace(/[/W]/g,'');">
-			<p>用户姓名</p>
-			<input type="text" class='add_username'>
-			<p>用户密码</p>
-			<input type="password" class='add_password'>
-			<p>用户手机号</p>
-			<input type="text" class='add_phone'>
-			<div class="addmantype">
-				<select name="addmantype" id="addManType">
-					{{if type !== 1}}
-					<option value="1">代理商</option>
-					{{/if}}
-					<option value="2">终端用户</option>
-				</select>
-			</div>
-			<div class="subbtn_box">
-				<button type="button" class="btn btn-info" id='add_submit'>确认添加</button>
+			<div class="tac_box">
+					<p>用户账号</p>
+					<input type="text" class='add_user'onkeyup="this.value=this.value.replace(/[/W]/g,'');">
+					<p>用户姓名</p>
+					<input type="text" class='add_username'>
+					<p>用户密码</p>
+					<input type="text" class='add_password'>
+					<p>用户手机号</p>
+					<input type="text" class='add_phone'>
+					<div class="addmantype">
+						<select name="addmantype" id="addManType">
+							{{if type !== 1}}
+							<option value="1">代理商</option>
+							{{/if}}
+							<option value="2">终端用户</option>
+						</select>
+					</div>
+					<div class="subbtn_box">
+						<button type="button" class="btn btn-info" id='add_submit'>确认添加</button>
+					</div>
+				</div>
+		</div>
+		<div class="add01">
+			添加成功!
+		</div>
+	</div>
+	<div class="addman_box1">
+		<div class="bgc1">
+			<div class="cel1">X</div>
+			<div class="tac_box1">
+				<p>用户账号</p>
+				<input type="text" class='revise_user1' readonly style='background-color: rgba(204,204,204,0.3);'>
+				<p>用户姓名</p>
+				<input type="text" class='revise_username1'>
+				<p>用户密码</p>
+				<input type="text" class='revise_password1'>
+				<p>用户手机号</p>
+				<input type="text" class='revise_phone1'>
+				<div class="subbtn_box">
+					<button type="button" class="btn btn-info" id='btn_revise'>确认修改</button>
+				</div>
 			</div>
 		</div>
-
+		<div class="add02">
+			修改成功!
+		</div>
 	</div>
 
+	<div class="yes_box">
+		<div class="bgc">
+			<div class="tip01">
+				<p>是否删除该用户</p>
+				<div class="bt">
+					<button type=button class='btn btn-danger clos'>取消</button>
+					<button type=button class='btn btn-success yes'>确定</button>
+				</div>
+			</div>
+			<div class="tip02">
+				删除成功!
+			</div>
+		</div>
+	</div>
 </div>

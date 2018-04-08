@@ -1,6 +1,6 @@
 {{if users}}
 {{each users}}
-<tr data-deluid='{{users[$index].uid}}'>
+<tr data-deluid='{{users[$index].uid}}' data-delname='{{users[$index].name}}' data-delpass='{{users[$index].pass}}' data-phone='{{users[$index].phone}}' data-utype='{{users[$index].utype}}'>
 	<td>{{users[$index].uid}}</td>
 	<td>{{users[$index].name}}</td>
 	{{if users[$index].utype == 0}}
@@ -11,7 +11,9 @@
 	<td>终端用户</td>
 	{{/if}}
 	<td>{{users[$index].phone}}</td>
+	<td>{{users[$index].pass}}</td>
 	<td><button type='button' class='btn btn-primary btn-xs btn-pt-info delet'>删除用户</button></td>
+	<td><button type='button' class='btn btn-primary btn-xs btn-pt-info revise'>修改用户</button></td>
 	<!--<td><button type='button' class='btn btn-primary btn-xs btn-pt-info info'>查看设备</button></td>-->
 </tr>
 {{/each}}

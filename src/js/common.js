@@ -1,7 +1,7 @@
 // var api ="http://192.168.2.102:9828/";
 // var api ="http://192.168.0.100:9828/";
-//  var api = "http://server.ttyuecai.com:9828/";
-var api = "http://192.168.1.130:9828/";
+ var api = "http://server.ttyuecai.com:9828/";
+// var api = "http://192.168.1.130:9828/";
 // var api = "http://frp.ttyuecai.com:10011/";
 
 /**
