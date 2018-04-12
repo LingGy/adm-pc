@@ -43,7 +43,6 @@ define(["jquery", "text!tpls/equipmentList.html", "text!tpls/detailedInfo.html",
 				            },
 				            success: function (res) {
 					            var res = JSON.parse(res);
-					            console.log(res);
 					            if (res.code === 1){
 						            throw new Error(res.msg);
 					            } else if(res.code === 0){
@@ -158,6 +157,27 @@ define(["jquery", "text!tpls/equipmentList.html", "text!tpls/detailedInfo.html",
 									            $('.edType').parent().attr('data-type',type)
 								            }
 							            }
+						            })
+					            });
+					            $('.changeName').on('click', function () {
+						            $.ajax({
+						                type:'post',
+						                url:api +'setaddress',
+						                data:{
+							                uid: uid,
+							                eid: $(this).attr('data-code'),
+							                usertype:usertype,
+							                accesstoken: accesstoken,
+							                address:$('input.addr').val(),
+							                addressname:$('input.addrname').val(),
+						                },
+						                success:function(data){
+							                if(data.code ==0){
+							                	alert("设置成功");
+							                }else {
+							                	alert("设置失败");
+							                }
+						                }
 						            })
 					            })
 				            }

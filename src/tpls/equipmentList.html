@@ -6,6 +6,7 @@
                 <th>序号</th>
                 <th>设备型号</th>
                 <th>设备编号</th>
+                <th>网点名称</th>
                 <th>网点地址</th>
                 <th>设备状态</th>
                 <th>操作</th>
@@ -18,11 +19,12 @@
                 <td>{{$index + 1}}</td>
                 <td>{{eqinfo.model}}</td>
                 <td class="i-code">{{eqinfo.code}}</td>
+                <td>{{eqinfo.addrname}}</td>
                 <td>{{eqinfo.addr}}</td>
                 {{if eqinfo.stat == 0}}
-                <td>正常</td>
+                <td>开机</td>
                 {{else}}
-                <td>故障</td>
+                <td>关机</td>
                 {{/if}}
                 <td>
                     <button type="button" class="btn btn-primary btn-xs btn-click">详细信息</button>
@@ -33,11 +35,12 @@
 	            <td>{{$index + 1}}</td>
 	            <td>{{eqinfo.model}}</td>
 	            <td class="i-code">{{eqinfo.code}}</td>
+	            <td>{{eqinfo.addrname}}</td>
 	            <td>{{eqinfo.addr}}</td>
 	            {{if eqinfo.stat == 0}}
-	            <td>正常</td>
+	            <td>开机</td>
 	            {{else}}
-	            <td>故障</td>
+	            <td>关机</td>
 	            {{/if}}
 	            <td>
 		            <button type="button" class="btn btn-primary btn-xs btn-click">详细信息</button>

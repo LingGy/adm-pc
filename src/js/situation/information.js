@@ -17,15 +17,15 @@ define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", 
 	    $(".menu-content-container").empty().append(salesSituationTpl)
 
 	    //2.获取本地存储数据
-	    var toarr = window.sessionStorage.getItem('eidlist')
-	    var eidList = toarr.split(',');
+	    // var toarr = window.sessionStorage.getItem('eidlist')
+	    // var eidList = toarr.split(',');
 
 	    //3.把数据渲染到select中
-	    var str = '<option value=""></option>'
-	    for (let i = 0, len = eidList.length; i < len; i++) {
-		    str += '<option value="' + eidList[i] + '">' + eidList[i] + '</option>'
-	    }
-	    $('#eid').html(str);
+	    // var str = '<option value=""></option>'
+	    // for (let i = 0, len = eidList.length; i < len; i++) {
+		 //    str += '<option value="' + eidList[i] + '">' + eidList[i] + '</option>'
+	    // }
+	    // $('#eid').html(str);
 
 	    //4.注册日期选择插件
 	    var dateRange = new pickerDateRange('intDate', {
@@ -44,7 +44,7 @@ define(["jquery", "text!tpls/salesSituation.html", "text!tpls/appoitDate.html", 
 
 	    //5.注册点击查询事件
 	    $('#queryData').on('click', function () {
-		    let eid = $('#eid option:selected').val();
+		    let eid = $('#eid').val();
 		    let time1 = ($('#d1_hour option:selected').val()*60*60)+($('#d1_mincte option:selected').val()*60);
 		    let time2 = ($('#d2_hour option:selected').val()*60*60)+($('#d2_mincte option:selected').val()*60);
 		    let start = checkTimeStar + time1;

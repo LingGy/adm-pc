@@ -67,3 +67,15 @@
 3. 优化了用户管理页面显示样式
 4. 修复页面缩放部分文字掉落问题
 5. 列表信息添加了密码文本
+### 2018/04/12 15:30
+#### 修改文件 :
+   1. src/tpls/ :
+        sales.html,equipmentList.html,detailedInfo.html
+   2. ./:
+        user.index.html,gm-main.js
+   3. src/js:
+        list.js
+#### 修改内容:
+1. 删除设备信息列表oid,增加网点名称;
+2. 状态显示改为关机或开机;
+3. 增加设置网点名称和网点地址功能;

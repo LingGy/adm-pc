@@ -26,11 +26,20 @@
 		<td><span class="dj">设备MAC地址:</span><span class="sptd">{{equipment.mac}}</span></td>
 	</tr>
 	<tr>
+		<td>
+			<span class="dj">网点名称:</span>
+			<input type="text" class="addrname" value='{{equipment.addrname || ""}}' style="margin-right: 10px;" maxlength="5" placeholder='限定名称5个字符内'>
+			<span class="dj">网点地址:</span>
+			<input type="text" class="addr" value='{{equipment.addr || ""}}'>
+			<button type='button' class="changeName" style='margin-left: 15px' data-code='{{equipment.code}}'>设置</button>
+		</td>
+	</tr>
+	<tr>
 		<td><span class="dj">工作状态:</span>
 			{{if equipment.stat == '正常'}}
-			<span class="sptd">{{equipment.stat}}</span>
+			<span class="sptd">开机</span>
 			{{else if equipment.stat == '故障'}}
-			<span class="sptdt">{{equipment.stat}}</span>
+			<span class="sptdt">关机</span>
 			{{/if}}
 		</td>
 	</tr>
