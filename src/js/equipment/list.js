@@ -172,10 +172,10 @@ define(["jquery", "text!tpls/equipmentList.html", "text!tpls/detailedInfo.html",
 							                addressname:$('input.addrname').val(),
 						                },
 						                success:function(data){
-							                if(data.code ==0){
+							                if(data.code == 0){
 							                	alert("设置成功");
 							                }else {
-							                	alert("设置失败");
+							                	alert(data.msg);
 							                }
 						                }
 						            })

@@ -1,5 +1,5 @@
 <tr>
-    <th colspan='6'>
+    <th colspan='8'>
         <button type="button" class="btn btn-primary btn-sm" id='backSales'>返回</button>
     </th>
 </tr>
@@ -10,6 +10,8 @@
     <td>{{eid}}</td>
     <td>订单号:</td>
     <td>{{oid}}</td>
+	<td></td>
+	<td></td>
 </tr>
 <tr class='tebie'>
     <td>订单总价格:</td>
@@ -34,6 +36,9 @@
     {{else if res == 1}}
     <td>未完成</td>
     {{/if}}
+	<td></td>
+	<td></td>
+
 </tr>
 
 {{if orders != false}}
@@ -41,13 +46,14 @@
     <td>彩票类型A:</td>
     <td>{{orders[0].type}}</td>
 
-    <td>张数:</td>
+    <td>总张数:</td>
     {{if orders[0].count !=''}}
     <td>{{orders[0].count}}</td>
     {{else}}
     <td>0</td>
     {{/if}}
-
+	<td>已经打印</td>
+	<td>{{orders[0].print}}张</td>
     <td>单张价格:</td>
     <td>{{orders[0].price}}</td>
 </tr>
@@ -57,13 +63,14 @@
     <td>彩票类型B:</td>
     <td>{{orders[1].type}}</td>
 
-    <td>张数:</td>
+    <td>总张数:</td>
     {{if orders[1].count !=''}}
     <td>{{orders[1].count}}</td>
     {{else}}
     <td>0</td>
     {{/if}}
-
+	<td>已经打印</td>
+	<td>{{orders[1].print}}张</td>
     <td>单张价格:</td>
     <td>{{orders[1].price}}</td>
 </tr>
